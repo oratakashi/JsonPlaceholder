@@ -14,4 +14,5 @@ class MainViewModel @Inject constructor(
     val state: MutableLiveData<MainState> by liveData()
 
     fun getPhotos() = repository.getPhotos(state)
+    fun getPhotos(keyword: String) = repository.getPhotos(keyword, state)
 }

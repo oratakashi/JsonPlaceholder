@@ -20,6 +20,14 @@ class LocalRepository @Inject constructor(
         return db.photos().addAll(data)
     }
 
+    override fun searchCached(keyword: String): Single<List<Photos>> {
+        return db.photos().search(keyword)
+    }
+
+    override fun getPhotos(keyword: String, state: MutableLiveData<MainState>) {
+        throw UnsupportedOperationException()
+    }
+
     override fun getPhotos(state: MutableLiveData<MainState>) {
         throw UnsupportedOperationException()
     }

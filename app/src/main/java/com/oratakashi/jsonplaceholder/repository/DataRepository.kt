@@ -45,6 +45,22 @@ class DataRepository @Inject constructor(
             .let { return@let disposable::add }
     }
 
+    override fun getPhotos(keyword: String, state: MutableLiveData<MainState>) {
+        localRepository.searchCached("%${keyword}%")
+            .map<MainState>(MainState::Result)
+            .onErrorReturn(MainState::Error)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .toFlowable()
+            .startWith(MainState.Loading)
+            .subscribe(state::postValue)
+            .let { return@let disposable::add }
+    }
+
+    override fun searchCached(keyword: String): Single<List<Photos>> {
+        throw UnsupportedOperationException()
+    }
+
     override fun getCached(): Single<List<Photos>> {
         throw UnsupportedOperationException()
     }

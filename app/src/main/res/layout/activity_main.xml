@@ -14,7 +14,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <EditText
+            android:id="@+id/etSearch"
+            style="@style/editText"
+            android:hint="@string/title_search"
+            android:inputType="text"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/srMain"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etSearch">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="10"
+                tools:listitem="@layout/adapter_photos"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.kennyc.view.MultiStateView>

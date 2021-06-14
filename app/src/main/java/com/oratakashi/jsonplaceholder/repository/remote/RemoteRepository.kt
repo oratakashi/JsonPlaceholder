@@ -27,4 +27,12 @@ class RemoteRepository @Inject constructor(
     override fun addPhotos(data: List<Photos>): Single<List<Long>> {
         throw UnsupportedOperationException()
     }
+
+    override fun getPhotos(keyword: String, state: MutableLiveData<MainState>) {
+        throw UnsupportedOperationException()
+    }
+
+    override fun searchCached(keyword: String): Single<List<Photos>> {
+        throw UnsupportedOperationException()
+    }
 }

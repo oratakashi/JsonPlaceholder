@@ -7,7 +7,9 @@ import io.reactivex.Single
 
 interface Repository {
     fun getPhotos(state: MutableLiveData<MainState>)
-    fun getCached() : Single<List<Photos>>
-    fun getRemote() : Single<List<Photos>>
+    fun getPhotos(keyword: String, state: MutableLiveData<MainState>)
+    fun getCached(): Single<List<Photos>>
+    fun searchCached(keyword: String): Single<List<Photos>>
+    fun getRemote(): Single<List<Photos>>
     fun addPhotos(data: List<Photos>): Single<List<Long>>
 }

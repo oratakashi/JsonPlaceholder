@@ -12,6 +12,9 @@ interface PhotosDao {
     @Query("Select * from photos")
     fun getAll() : Single<List<Photos>>
 
+    @Query("Select * from photos where title like :query")
+    fun search(query: String) : Single<List<Photos>>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun addAll(data: List<Photos>) : Single<List<Long>>
 }
