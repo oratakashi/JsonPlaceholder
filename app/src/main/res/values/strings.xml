@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JsonPlaceholder</string>
+    <string name="title_search">Search</string>
 </resources>
